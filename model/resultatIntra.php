@@ -51,14 +51,16 @@
     <?php
     echo "<a target='_blank' href='images.php?id=$search'><font size='+1' color='#1a1aff'> Plus d'image pour: " . $search . "</font></a>";
 
-    echo "<hr>";
-
     $sql_text = "select * from website where site_key like'%$search%'";
 
     $rs_text = $bdd->query($sql_text);
 
     $row_text = $rs_text->fetchAll();
+    
+    
 
+    echo "<hr><h3><font color='#e68a00' style='margin-left:10px'>Tous les autres resultats</font></h3>";
+    
     foreach ($row_text as $value) {
 
         if ($value[1]) {
@@ -74,5 +76,8 @@
         }
         echo "<font size='3' color='#666666'>$value[4]</font><br><br>";
     }
+    
+    echo "<br><br></tr></table></div>";
+    
     ?>
 </div>
